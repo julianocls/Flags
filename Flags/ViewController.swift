@@ -13,9 +13,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     
+    @IBOutlet weak var placalLb: UILabel!
+    
     var countries = [String]()
     var score = 0
     var correctAnswer = 0
+    var numberLoops = 0
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,20 +47,42 @@ class ViewController: UIViewController {
         correctAnswer = Int.random(in: 0...2)
         title = countries[correctAnswer].uppercased()
 
+        showPlacar()
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         var title: String
 
         if sender.tag == correctAnswer {
-            title = "Acerto miserarvi"
+            title = "Acerto!"
             score += 1
         } else {
             title = "Errou!"
-            score -= 1
+            if score > 0 {
+                score -= 1
+            }
         }
         
-        let ac = UIAlertController(title: title, message: "Sua pontuação é: \(score).", preferredStyle: .alert)
+        numberLoops += 1
+        
+        showPlacar()
+
+        showMessage()
+    }
+    
+    func showPlacar() {
+        placalLb.text = "Placar: \(score) pontos. \(numberLoops) de 10 "
+    }
+    
+    func showMessage() {
+        let ac: UIAlertController
+        if numberLoops == 10 {
+            ac = UIAlertController( title: title, message: "Sua pontuação final é \(score) pontos", preferredStyle: .alert)
+            numberLoops = 0
+            score = 0
+        } else {
+            ac = UIAlertController(title: title, message: "Sua pontuação é: \(score).", preferredStyle: .alert)
+        }
         ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
         present(ac, animated: true)
     }

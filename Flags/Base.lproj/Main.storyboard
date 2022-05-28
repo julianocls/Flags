@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkI-qN-EIv">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkI-qN-EIv">
                                 <rect key="frame" x="95" y="88" width="224" height="114"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="US"/>
@@ -24,7 +24,7 @@
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z0I-fe-Fnz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgP-nI-i9p">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgP-nI-i9p">
                                 <rect key="frame" x="95" y="229" width="224" height="114"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="US"/>
@@ -32,7 +32,7 @@
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KlA-M4-vms"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7q3-ez-DTA">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7q3-ez-DTA">
                                 <rect key="frame" x="95" y="370" width="224" height="114"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="US"/>
@@ -40,16 +40,26 @@
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hlv-Em-YlZ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lz-md-2qa">
+                                <rect key="frame" x="20" y="642" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="2lz-md-2qa" firstAttribute="top" secondItem="7q3-ez-DTA" secondAttribute="bottom" constant="100" id="3ia-a7-xUQ"/>
                             <constraint firstItem="IgP-nI-i9p" firstAttribute="centerX" secondItem="gkI-qN-EIv" secondAttribute="centerX" id="GYD-wp-lzV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2lz-md-2qa" secondAttribute="trailing" constant="20" id="IQq-3q-tWF"/>
                             <constraint firstItem="7q3-ez-DTA" firstAttribute="centerX" secondItem="IgP-nI-i9p" secondAttribute="centerX" id="O8w-pn-7pP"/>
+                            <constraint firstItem="2lz-md-2qa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PBc-Kw-DLR"/>
                             <constraint firstItem="gkI-qN-EIv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Pwc-FZ-lAC"/>
                             <constraint firstItem="7q3-ez-DTA" firstAttribute="top" secondItem="IgP-nI-i9p" secondAttribute="bottom" constant="27" id="URp-iG-Mna"/>
                             <constraint firstItem="gkI-qN-EIv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UUY-ci-mlM"/>
                             <constraint firstItem="IgP-nI-i9p" firstAttribute="top" secondItem="gkI-qN-EIv" secondAttribute="bottom" constant="27" id="fxm-cx-OHE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2lz-md-2qa" secondAttribute="bottom" constant="220" id="sQo-At-E9a"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZE5-AD-fg8"/>
@@ -57,6 +67,7 @@
                         <outlet property="button1" destination="gkI-qN-EIv" id="1SK-vx-4Wv"/>
                         <outlet property="button2" destination="IgP-nI-i9p" id="XWa-no-c5C"/>
                         <outlet property="button3" destination="7q3-ez-DTA" id="5DC-R1-sI0"/>
+                        <outlet property="placalLb" destination="2lz-md-2qa" id="Mz2-c1-pzi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
